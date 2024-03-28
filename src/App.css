@@ -1,38 +1,201 @@
+body {
+  background-image: url('bgrnd.jpg'); /* Path to your image file */
+  background-size: cover; /* Scale the background image to cover the entire container */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Do not repeat the background image */
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  /*background-color: #f0f0f0;*/
+}
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+.App h1 {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.App p {
+  margin-bottom: 15px;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
+.square {
+  position: relative;
+  width: 450px;
+  height: 500px;
+  background-color: #fff;
+  opacity: 0.9;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.players {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 95%;
+  height: 96%;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.player {
+  width: 120px;
+  height: 100px;
+  border: 2px solid #000;
+  border-radius: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.player h2 {
+  margin-right: 2px;
+  margin-top: 21px;
+}
+
+.player p {
+  color: #000;
+  margin-left: 6px;
+}
+
+.player-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.player-2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.player-3 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.player-4 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.result p {
+  color: #000;
+}
+
+.random-button {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.random-button:hover {
+  background-color: #0056b3;
+}
+
+.restart-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.restart-button:hover {
+  background-color: #c82333;
+}
+
+/* App.css */
+.view-winner-button {
+  margin-top: 10px;
+  padding: 10px 25px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.view-winner-button:hover {
+  background-color: #218838; /* Darker green color on hover */
+}
+
+
+.dice {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  position: relative;
+}
+
+.face {
+  width: 80px;
+  height: 80px;
+  background-color: white;
+  border: 1px solid black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.face-1::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+/* Add more face styles for other dice values */
+
+.rolling {
+  animation: roll 1s ease-in-out infinite;
+}
+
+@keyframes roll {
+  0%, 100% {
     transform: rotate(0deg);
   }
-  to {
-    transform: rotate(360deg);
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
   }
 }
